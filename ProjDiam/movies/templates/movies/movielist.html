@@ -1,0 +1,52 @@
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<head>
+<style>
+    th{
+        max-width: 100px;
+        text-align: center;
+    }
+    td{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100px;
+    }
+    </style>
+</head>
+    <h2>Movie Table</h2>
+    <table class="table table-hover table-sm">
+        <thead class="thead-light" data-file-width="5px">
+            <tr>
+                <th scope="col">MovieID</th>
+                <th scope="col">Year</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Duration (min)</th>
+                <th scope="col">Movie Type</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Likes</th>
+
+            </tr>
+        </thead>
+        {% for movie in movies %}
+        <tr>
+            <th scope="row"> {{ movie.movieid }}</th>
+            <td> {{ movie.year }}</td>
+            <td> {{ movie.title }}</td>
+            <td> {{ movie.description }}</td>
+            <td align="center"> {{ movie.duration }}</td>
+            <td> {{ movie.genres }}</td>
+            <td align="center"> {{ movie.rating }}</td>
+            <td align="center"> {{ movie.likes }}</td>
+
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
