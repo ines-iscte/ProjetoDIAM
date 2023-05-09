@@ -13,3 +13,10 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.title
+
+    def getPhoto(self):
+        return self.photo
+
+class User (models.Model):
+    name = models.CharField(max_length=100)
+    email = models.CharField(max_length=500)

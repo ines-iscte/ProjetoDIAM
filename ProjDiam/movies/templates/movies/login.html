@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+<link rel="stylesheet" href="login.css">
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Criar Conta</h1>
+			<input type="text" placeholder="Nome" />
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<button>Criar Conta</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Iniciar Sessão</h1>
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<button>Iniciar Sessão</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Bem-vindo de Volta!</h1>
+				<p>Para continuar ligado por favor inicie sessão com os seus dados</p>
+				<button class="ghost" id="signIn">Iniciar Sessão</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Olá, Amigo/a!</h1>
+				<p>Introduza os seus dados para criar uma conta</p>
+				<button class="ghost" id="signUp">Criar Conta</button>
+                <script src="login.js"></script>
+			</div>
+		</div>
+	</div>
+</div>
