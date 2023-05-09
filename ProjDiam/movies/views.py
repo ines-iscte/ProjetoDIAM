@@ -1,6 +1,4 @@
-from django.contrib import messages
-from django.contrib.auth import authenticate, login
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 
 # Create your views here.
 from django.shortcuts import render
@@ -22,6 +20,20 @@ def log_in(request):
         # handle form data
         username = request.POST['username']
         password = request.POST['password']
+def addMovie(request):
+    return render(request, 'movies/addMovie.html')
+
+def registerMovie(request):
+    if request.method == 'POST':
+        new_movie = Movie(title=request.POST['title'], year=request.POST['year'], description=request.POST['description'], duration=request.POST['duration'], genre=request.POST['genre'], rating=request.POST['rating'], photo=request.POST['photo'])
+        new_movie.save()
+        return HttpResponseRedirect(reverse('movies'))
+    else:
+        if request.user.is_superuser:
+            return render(request, 'movies/addMovie.html')
+        else:
+            return HttpResponseRedirect(reverse('movies'))
+
 
         # authenticate user
         user = authenticate(username=username, password=password)

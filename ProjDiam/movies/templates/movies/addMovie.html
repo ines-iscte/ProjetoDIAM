@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar filme</title>
+</head>
+<body>
+{% block content %}
+    <form action="{% url 'movies:registerMovie'%}" method="post" enctype="multipart/form-data" >
+        {% load static %}
+        {% csrf_token %}
+        Título:<br><input type="text" id= "title" name="title"><br>
+        Ano: <br><input type="int" id= "year" name="year"><br>
+        Descrição:<br><input type="text" id= "description" name="description"><br>
+        Duração:<br><input type="int" id= "duration" name="duration"><br>
+        Género:<br><input type="text" id= "genre" name="genre"><br>
+        Rating:<br><input type="float" id= "rating" name="rating"><br>
+        Foto:<br><input type="file" name="photo"><br>
+        <input type="submit" value="Adicionar" style="margin-top: 10px;" id="submit_movie">
+    </form>
+{% endblock %}
+</body>
+</html>
