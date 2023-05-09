@@ -13,3 +13,7 @@ class Movie(models.Model):
 
     def __str__(self):
         return self.title
+
+class User (models.Model):
+    name = models.CharField(max_length=100)
+    email = models.CharField(max_length=500)
