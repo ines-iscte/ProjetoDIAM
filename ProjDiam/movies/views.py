@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from django.db.models import Q
 from .models import Movie
 
 app_name = 'movies'
@@ -15,6 +15,13 @@ def movie_list(request):
     movies = Movie.objects.all()
     return render(request, 'movies/movielist.html', {'movies': movies})
 
+
+def search_movies(request):
+    query = request.GET.get('query', '')
+    movies = Movie.objects.filter(Q(title__icontains=query) | Q(description__icontains=query))
+    context = {'movies': movies, 'query': query}
+    return render(request, 'search_results.html', context)
+  
 def log_in(request):
     if request.method == 'POST':
         # handle form data
@@ -46,3 +53,4 @@ def registerMovie(request):
             messages.error(request, 'Invalid username or password.')
         # if request method is GET or authentication failed, display login page
     return render(request, 'login.html')
+
