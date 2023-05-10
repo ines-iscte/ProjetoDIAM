@@ -6,9 +6,10 @@ class Movie(models.Model):
     title = models.CharField(max_length=30)
     description = models.CharField(max_length=500, null=True)
     duration = models.IntegerField(blank=True, null=True)
-    genres = models.CharField(max_length=100)
+    genre = models.CharField(max_length=100)
     rating = models.FloatField(blank=True, null=True)
-    likes = models.IntegerField(blank=True, null=True)
+    likes = models.IntegerField(blank=True, null=True, default=0)
+    photo = models.FileField(default="")
 
 
     def __str__(self):
