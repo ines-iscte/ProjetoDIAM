@@ -6,7 +6,7 @@
 </head>
 <body>
 {% block content %}
-    <form action="{% url 'movies:registerMovie'%}" method="post" enctype="multipart/form-data" >
+    <form action="{% url 'movies:register_movie'%}" method="post" enctype="multipart/form-data" >
         {% load static %}
         {% csrf_token %}
         Título:<br><input type="text" id= "title" name="title"><br>
@@ -15,7 +15,7 @@
         Duração:<br><input type="int" id= "duration" name="duration"><br>
         Género:<br><input type="text" id= "genre" name="genre"><br>
         Rating:<br><input type="float" id= "rating" name="rating"><br>
-        Foto:<br><input type="file" name="photo"><br>
+        Foto:<br><input type="file" id='photo' name="photo"><br>
         <input type="submit" value="Adicionar" style="margin-top: 10px;" id="submit_movie">
     </form>
 {% endblock %}

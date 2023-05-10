@@ -1,5 +1,13 @@
-<meta charset="UTF-8">
-<link rel="stylesheet" href="login.css">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../../static/style/login.css" type="text/css">
+
+</head>
+<body>
+
+
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form action="#">
@@ -29,8 +37,27 @@
 				<h1>Olá, Amigo/a!</h1>
 				<p>Introduza os seus dados para criar uma conta</p>
 				<button class="ghost" id="signUp">Criar Conta</button>
-                <script src="login.js"></script>
+
 			</div>
 		</div>
 	</div>
 </div>
+</body>
+
+
+    <script type="text/javascript">
+    var signUpButton = document.getElementById('signUp');
+    var signInButton = document.getElementById('signIn');
+    var container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+        container.classList.add("right-panel-active");
+    });
+
+    signInButton.addEventListener('click', () => {
+        container.classList.remove("right-panel-active");
+    });
+    </script>
+
+
+</html>

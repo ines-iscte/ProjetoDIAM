@@ -1,0 +1,24 @@
+{% block content %}
+    {%  load static %}
+  <h2>Resultados da pesquisa "{{ query }}":</h2>
+  {% if movies %}
+    <table class="table table-hover table-sm">
+        <thead class="thead-light" data-file-width="5px">
+            <tr>
+                <th scope="col">Foto</th>
+                <th scope="col">Título</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        {% for movie in movies %}
+        <tr>
+            <td><img src="{% static movie.photo %}" alt="{{ movie.title }}" width="100" height="100"></td>
+            <td> {{ movie.title }} </td>
+            <td><a href="{% url 'movies:detail_movie' movie.movieid %}">Detalhes</a></td>
+        </tr>
+        {% endfor %}
+    </table><br>
+  {% else %}
+    <p>Não foram encontrados filmes.</p>
+  {% endif %}
+{% endblock %}
